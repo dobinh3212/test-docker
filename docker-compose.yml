@@ -1,0 +1,21 @@
+version: '3.4'
+services: 
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: 'laravel_db'
+    ports:
+      - 8000:8000
+    command: sh docker/docker-entrypoint.sh
+    volumes:
+      - ./:/var/www/html
+  db:
+    image: mysql:5.7
+    ports: 
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: 'laravel_db'
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - ./db:/var/lib/mysql
