@@ -14,4 +14,4 @@ php artisan key:generate
 php artisan serve --host 0.0.0.0
 
 #
-sudo chmod -R 777 storage
+chmod -R 777 storage
